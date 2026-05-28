@@ -26,7 +26,7 @@ Features:
 
     'price': 499.00,
 
-    'currency': 'INR',
+    'currency': 'USD',
 
     'depends': ['base'],
 
