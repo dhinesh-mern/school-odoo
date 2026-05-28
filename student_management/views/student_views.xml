@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- TREE VIEW -->
+
+    <record id="view_student_tree"
+            model="ir.ui.view">
+
+        <field name="name">student.student.tree</field>
+
+        <field name="model">student.student</field>
+
+        <field name="arch" type="xml">
+
+            <tree>
+
+                <field name="student_id"/>
+
+                <field name="name"/>
+
+                <field name="age"/>
+
+                <field name="course"/>
+
+            </tree>
+
+        </field>
+
+    </record>
+
+
+    <!-- FORM VIEW -->
+
+    <record id="view_student_form"
+            model="ir.ui.view">
+
+        <field name="name">student.student.form</field>
+
+        <field name="model">student.student</field>
+
+        <field name="arch" type="xml">
+
+            <form>
+
+                <sheet>
+
+                    <group>
+
+                        <field name="student_id"/>
+
+                        <field name="name"/>
+
+                        <field name="age"/>
+
+                        <field name="course"/>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+
+        </field>
+
+    </record>
+
+
+    <!-- ACTION -->
+
+    <record id="student_action"
+            model="ir.actions.act_window">
+
+        <field name="name">Students</field>
+
+        <field name="res_model">student.student</field>
+
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+    <!-- MENU -->
+
+    <menuitem id="student_main_menu"
+              name="Student Management"/>
+
+    <menuitem id="student_menu"
+              name="Students"
+              parent="student_main_menu"
+              action="student_action"/>
+
+</odoo>

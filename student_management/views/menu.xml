@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- =========================
+         MAIN MENU
+    ========================== -->
+
+    <menuitem id="student_main_menu"
+              name="Student Management"
+              sequence="1"/>
+
+
+    <!-- =========================
+         STUDENTS
+    ========================== -->
+
+    <menuitem id="student_menu"
+              name="Students"
+              parent="student_main_menu"
+              action="student_action"
+              sequence="1"/>
+
+
+    <!-- =========================
+         COURSES
+    ========================== -->
+
+    <menuitem id="course_menu"
+              name="Courses"
+              parent="student_main_menu"
+              action="course_action"
+              sequence="2"/>
+
+
+    <!-- =========================
+         DEPARTMENTS
+    ========================== -->
+
+    <menuitem id="department_menu"
+              name="Departments"
+              parent="student_main_menu"
+              action="department_action"
+              sequence="3"/>
+
+
+    <!-- =========================
+         ATTENDANCE
+    ========================== -->
+
+    <menuitem id="attendance_menu"
+              name="Attendance"
+              parent="student_main_menu"
+              action="attendance_action"
+              sequence="4"/>
+
+
+    <!-- =========================
+         FEES
+    ========================== -->
+
+    <menuitem id="fee_menu"
+              name="Fees"
+              parent="student_main_menu"
+              action="fee_action"
+              sequence="5"/>
+
+
+    <!-- =========================
+         EXAMS
+    ========================== -->
+
+    <menuitem id="exam_menu"
+              name="Exams"
+              parent="student_main_menu"
+              action="exam_action"
+              sequence="6"/>
+
+</odoo>

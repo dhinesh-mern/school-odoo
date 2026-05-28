@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- =========================
+         TREE VIEW
+    ========================== -->
+
+    <record id="view_attendance_tree"
+            model="ir.ui.view">
+
+        <field name="name">
+            student.attendance.tree
+        </field>
+
+        <field name="model">
+            student.attendance
+        </field>
+
+        <field name="arch" type="xml">
+
+            <tree string="Attendance">
+
+                <field name="student_id"/>
+
+                <field name="date"/>
+
+                <field name="status"/>
+
+            </tree>
+
+        </field>
+
+    </record>
+
+
+    <!-- =========================
+         FORM VIEW
+    ========================== -->
+
+    <record id="view_attendance_form"
+            model="ir.ui.view">
+
+        <field name="name">
+            student.attendance.form
+        </field>
+
+        <field name="model">
+            student.attendance
+        </field>
+
+        <field name="arch" type="xml">
+
+            <form string="Attendance">
+
+                <sheet>
+
+                    <group>
+
+                        <field name="student_id"/>
+
+                        <field name="date"/>
+
+                        <field name="status"/>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+
+        </field>
+
+    </record>
+
+
+    <!-- =========================
+         SEARCH VIEW
+    ========================== -->
+
+    <record id="view_attendance_search"
+            model="ir.ui.view">
+
+        <field name="name">
+            student.attendance.search
+        </field>
+
+        <field name="model">
+            student.attendance
+        </field>
+
+        <field name="arch" type="xml">
+
+            <search string="Search Attendance">
+
+                <field name="student_id"/>
+
+                <field name="date"/>
+
+                <separator/>
+
+                <filter string="Present"
+                        name="filter_present"
+                        domain="[('status','=','present')]"/>
+
+                <filter string="Absent"
+                        name="filter_absent"
+                        domain="[('status','=','absent')]"/>
+
+                <group expand="0"
+                       string="Group By">
+
+                    <filter string="Student"
+                            name="group_by_student"
+                            context="{'group_by':'student_id'}"/>
+
+                    <filter string="Date"
+                            name="group_by_date"
+                            context="{'group_by':'date'}"/>
+
+                </group>
+
+            </search>
+
+        </field>
+
+    </record>
+
+
+    <!-- =========================
+         ACTION
+    ========================== -->
+
+    <record id="attendance_action"
+            model="ir.actions.act_window">
+
+        <field name="name">
+            Attendance
+        </field>
+
+        <field name="res_model">
+            student.attendance
+        </field>
+
+        <field name="view_mode">
+            tree,form
+        </field>
+
+        <field name="search_view_id"
+               ref="view_attendance_search"/>
+
+    </record>
+
+</odoo>

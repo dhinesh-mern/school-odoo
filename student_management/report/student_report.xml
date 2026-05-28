@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- =========================
+         REPORT ACTION
+    ========================== -->
+
+    <record id="action_student_report"
+            model="ir.actions.report">
+
+        <field name="name">
+            Student Report
+        </field>
+
+        <field name="model">
+            student.student
+        </field>
+
+        <field name="report_type">
+            qweb-pdf
+        </field>
+
+        <field name="report_name">
+            student_management.student_report_template
+        </field>
+
+        <field name="report_file">
+            student_management.student_report_template
+        </field>
+
+        <field name="print_report_name">
+            'Student Report - %s' % (object.name)
+        </field>
+
+    </record>
+
+
+    <!-- =========================
+         REPORT TEMPLATE
+    ========================== -->
+
+    <template id="student_report_template">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <h2>
+                            Student Report
+                        </h2>
+
+                        <br/>
+
+                        <table class="table table-bordered">
+
+                            <tbody>
+
+                                <tr>
+                                    <th>Student ID</th>
+                                    <td>
+                                        <span t-field="doc.student_id"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Name</th>
+                                    <td>
+                                        <span t-field="doc.name"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Age</th>
+                                    <td>
+                                        <span t-field="doc.age"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Gender</th>
+                                    <td>
+                                        <span t-field="doc.gender"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Email</th>
+                                    <td>
+                                        <span t-field="doc.email"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Phone</th>
+                                    <td>
+                                        <span t-field="doc.phone"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Course</th>
+                                    <td>
+                                        <span t-field="doc.course_id"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Department</th>
+                                    <td>
+                                        <span t-field="doc.department_id"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Total Fees</th>
+                                    <td>
+                                        <span t-field="doc.total_fees"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Attendance %</th>
+                                    <td>
+                                        <span t-field="doc.attendance_percentage"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Status</th>
+                                    <td>
+                                        <span t-field="doc.state"/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>
